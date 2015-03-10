@@ -1,8 +1,8 @@
 class CreateAssignments < ActiveRecord::Migration
   def change
     create_table :assignments do |t|
-      t.integer :maker_id
-      t.integer :tasker_id
+      t.integer :customer_id
+      t.integer :worker_id
       t.text :description
       t.integer :price_in_cents
       t.datetime :date

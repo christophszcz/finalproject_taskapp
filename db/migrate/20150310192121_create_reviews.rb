@@ -1,8 +1,8 @@
 class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
-    	t.integer :maker_id
-    	t.integer :tasker_id
+    	t.integer :customer_id
+    	t.integer :worker_id
     	t.integer :assignment_id
 
     	t.integer :rating

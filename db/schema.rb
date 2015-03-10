@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20150310192121) do
 
   create_table "assignments", force: :cascade do |t|
-    t.integer  "maker_id"
-    t.integer  "tasker_id"
+    t.integer  "customer_id"
+    t.integer  "worker_id"
     t.text     "description"
     t.integer  "price_in_cents"
     t.datetime "date"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20150310192121) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "maker_id"
-    t.integer  "tasker_id"
+    t.integer  "customer_id"
+    t.integer  "worker_id"
     t.integer  "assignment_id"
     t.integer  "rating"
     t.text     "comment"

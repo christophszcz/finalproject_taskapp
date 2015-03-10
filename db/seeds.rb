@@ -23,8 +23,8 @@ end
 puts "\nGiving them suicidal missions...."
 600.times do
 	Assignment.create!(
-		maker_id: User.all.sample.id,
-		tasker_id: User.all.sample.id,
+		customer_id: User.all.sample.id,
+		worker_id: User.all.sample.id,
 		description: Faker::Hacker.say_something_smart,
 		price_in_cents: rand(5000),
 		date: Date.today + rand(20).days,
