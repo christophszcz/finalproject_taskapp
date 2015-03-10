@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
 	def show
-		@review
+		@customer_reviews = Review.find(params[:id])
 	end
 end

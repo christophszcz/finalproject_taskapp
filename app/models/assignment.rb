@@ -1,12 +1,12 @@
 class Assignment < ActiveRecord::Base
-	belongs_to :maker, class_name: "User", foreign_key: "maker_id"
-	belongs_to :tasker, class_name: "User", foreign_key: "tasker_id"
+	belongs_to :customer, class_name: "User", foreign_key: "customer_id"
+	belongs_to :worker, class_name: "User", foreign_key: "worker_id"
 
 	def other_party(participant)
-		if participant.id == maker_id
-			tasker
-		elsif participant.id == tasker_id
-			maker
+		if participant.id == customer_id
+			worker
+		elsif participant.id == worker_id
+			customer
 		else
 			raise "Invalid Participant"
 		end
