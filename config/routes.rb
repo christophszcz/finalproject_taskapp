@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
  
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit]
     
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :reviews, only:[:new, :create, :show, :index]
+
+  resources :assignments, except:[:destroy, :update ]
 
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
