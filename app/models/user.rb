@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 	def build_review(assignment)
 		other_party = assignment.other_party(self)
 		if owns?(assignment)
-			client_reviews.build(worker: other_party, assignment: assignment)
+			customer_reviews.build(worker: other_party, assignment: assignment)
 		else
 			worker_reviews.build(customer: other_party, assignment: assignment)
 		end
