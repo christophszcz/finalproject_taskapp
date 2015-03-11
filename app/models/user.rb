@@ -23,6 +23,6 @@ class User < ActiveRecord::Base
 
 	private
 	def owns?(assignment)
-		assignment.customer_id = id
+		assignment.customer_id == id
 	end
 end
