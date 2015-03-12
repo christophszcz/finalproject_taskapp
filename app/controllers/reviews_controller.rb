@@ -10,8 +10,10 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = @Assignment.review.build(review_params)
-		@review.user = current_user
+		@review = Review.new(review_params)
+		@review.from = current_user
+		@review.to = @review.assignment.other_party(current_user)
+
 		if @review.save
 			redirect_to assignments_path, notice: "Review created successfully"
 		else 
@@ -25,7 +27,7 @@ class ReviewsController < ApplicationController
 
 	private
 		def review_params
-			params.require(:review).permit(:customer_id , :worker_id, :assignment_id, :comment, :rating)
+			params.require(:review).permit(:assignment_id, :comment, :rating)
 
 	end
 
