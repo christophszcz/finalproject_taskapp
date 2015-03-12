@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
 	def create
 		@assignment = Assignment.new(assignment_params)
 		# old: @made_tasks = Assignment.new(assignment_params)
-		# @made_tasks.user_id = current_user._id
+		# @made_tasks.user_id = current_user.id
 
 		if @assignment.save
 			redirect_to assignments_path
