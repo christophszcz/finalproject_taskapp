@@ -1,0 +1,10 @@
+<div>
+	<dl>
+		<h2>My projects</h2>
+			<% @my_assignments.each do |assign| %>
+			<div>
+				<dt><%= link_to assign.title, assignment_path(assign.id)%></dt>
+			</div>
+			<% end %>
+	</dl>
+</div>
