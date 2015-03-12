@@ -4,11 +4,13 @@ class AssignmentsController < ApplicationController
 	end
 
 	def create
-		@made_tasks = Assignment.new(assignment_params)
-		@made_tasks.user_id = current_user.id
+		@assignment = Assignment.new(assignment_params)
+		# old: @made_tasks = Assignment.new(assignment_params)
+		# @made_tasks.user_id = current_user._id
 
 		if @assignment.save
-			redirect_to assignment_path(@made_task.id)
+			redirect_to assignments_path
+			# old: redirect_to assignment_path(@made_task.id)
 		else 
 			render :new
 		end
@@ -27,9 +29,9 @@ class AssignmentsController < ApplicationController
 		@assignment = Assignment.find(params[:id])
 	end
 
-	def edit
-		@assignment = Assignment.find(params[:id])
-	end
+	# def edit
+	# 	@assignment = Assignment.find(params[:id])
+	# end
 
 	private
 		def assignment_params

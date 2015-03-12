@@ -1,1 +1,13 @@
+ <h1>All TASKS</h1>
  
+<% @assignments.each do |assignment| %>
+<p>
+  <b>Task Title: </b>
+  <%= link_to(assignment.title, assignment_path(assignment)) %>
+</p>
+<p>
+  <b>Price: $</b>
+  <%= assignment.formatted_price %>
+</p>
+</br>
+<% end %>
