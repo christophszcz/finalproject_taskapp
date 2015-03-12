@@ -4,11 +4,11 @@ class AssignmentsController < ApplicationController
 	end
 
 	def create
-		@assignment = Assignment.new(assignment_params)
+		@made_task = Assignment.new(assignment_params)
 		# old: @made_tasks = Assignment.new(assignment_params)
-		# @made_tasks.user_id = current_user._id
+		@made_task.customer_id = current_user.id
 
-		if @assignment.save
+		if @made_task.save
 			redirect_to assignments_path
 			# old: redirect_to assignment_path(@made_task.id)
 		else 
@@ -39,7 +39,9 @@ class AssignmentsController < ApplicationController
 			:description,
 			:price_in_cents, 
 			:date,
-			:time
+			:time,
+			:customer_id,
+			:worker_id
 		)
 	end
 
