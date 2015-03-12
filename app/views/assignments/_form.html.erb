@@ -20,13 +20,17 @@
 		<%= f.text_area :description %>
 	</div>
 	<div class="field">
-		<%= f.label :price_in_cents %><br />
-		<%= f.number_field :price_in_cents %>
+		<%= f.label :price_for_task %><br />
+		<%= f.text_field :price_in_cents %>
 	</div>
 	<div class="field">
-		<%= f.label :time %><br />
-		<%= f.number_field :time %>
+		<%= f.label :due_date %><br />
+		<%= f.date_field :date %>
 	</div>
+	<div class="field">
+		<%= f.label :time_of_day %><br>
+		<%= f.time_field :time %>
+	</div><br>
 	<div class="actions">
 		<%= f.submit %>
 	</div>
