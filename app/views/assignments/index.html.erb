@@ -1,5 +1,6 @@
  <h1>All TASKS</h1>
  
+<% @assignments = Assignment.newest_first %>
 <% @assignments.each do |assignment| %>
 <p>
   <b>Task Title: </b>
