@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+	# before_filter :require_login_from_http_basic, only: [:create, :update]
 	def new
 		@assignment = Assignment.new
 	end

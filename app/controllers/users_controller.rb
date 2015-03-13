@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @my_assignments = current_user.made_tasks
+    @worker_assignments = current_user.accepted_tasks 
+
   end
   
   private

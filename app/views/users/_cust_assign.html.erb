@@ -12,7 +12,7 @@
 </div>
 
 <div>
-	<h2> Matched Tasks</h2>
+	<h2> Matched Tasks as Customer</h2>
 <table>		
 	<tr>
 			<th>Task</th>
@@ -26,5 +26,21 @@
 		<td><%= match.worker.first_name %></td>
 	</tr>
 	<% end %>
+	</table>
+	<h2> Matched Tasks as Worker </h2>
+<table>
+	<% @worker_assignments.each do |work| %>
+	<tr>
+
+			<td><%= link_to work.title, assignment_path(work.id) %></td>
+			<td> </td>
+			<td><%= work.worker.first_name %></td>
+			<td><%= work.customer.first_name %></td>
+
+
+	</tr>
+
+<% end %>
+
 </table>
 </div>
