@@ -25,11 +25,11 @@
 	</div>
 	<div class="field">
 		<%= f.label :due_date %><br />
-		<%= f.date_field :date %>
+		<%= f.date_select :date %>
 	</div>
 	<div class="field">
 		<%= f.label :time_of_day %><br>
-		<%= f.time_field :time %>
+		<%= f.time_select :time, {ampm: true} %>
 	</div><br>
 	<div class="actions">
 		<%= f.submit %>
