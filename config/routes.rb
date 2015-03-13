@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :reviews, only:[:new, :create, :show, :index]
 
-  resources :assignments, except:[:destroy, :update ]
+  resources :assignments, except:[:destroy]
 
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
