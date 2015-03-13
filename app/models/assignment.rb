@@ -1,8 +1,10 @@
 class Assignment < ActiveRecord::Base
+	attr_accessor :updating_assignment
+
 	scope :newest_first, -> { order("created_at DESC") }
 
 	validates :customer, presence: true
-	validates :worker, presence: true
+	validate :should_validate_assignment?
 
 	belongs_to :customer, class_name: "User", foreign_key: "customer_id"
 	belongs_to :worker, class_name: "User", foreign_key: "worker_id"
@@ -14,6 +16,12 @@ class Assignment < ActiveRecord::Base
 	# def worker_ratings
 	# 	ratings.where(user: worker)
 	# end
+
+	def should_validate_assignment?
+		if updating_assignment
+			worker.present?
+		end
+	end
 
 	def other_party(participant)
 		if participant == customer

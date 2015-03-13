@@ -1,0 +1,17 @@
+	<h2> Matched Tasks as Worker </h2>
+<table>
+	<% @worker_assignments.each do |work| %>
+	<tr>		
+			<% if work.customer.nil? %>
+			<td>Invalid Task <%= work.id %></td>
+		<% else %>
+
+			<td><%= link_to work.title, assignment_path(work.id) %></td>
+			<td> </td>
+			<td><%= work.worker.first_name %></td>
+			<td><%= work.customer.first_name %></td>
+<% end %>
+
+	</tr>
+
+<% end %>
