@@ -4,8 +4,8 @@
 			<% @my_assignments.each do |assign| %>
 			<div>
 				<dt><%= link_to assign.title, assignment_path(assign.id)%></dt>
-				<dd>Task Date: <%=assign.date %></dd>
-				<dd>Task Time: <%=assign.time %></dd>
+				<dd>Task Date: <%=assign.date.strftime("%B %e, %Y") %></dd>
+				<dd>Task Time: <%=assign.time.strftime("%l:%M %P") %></dd>
 			</div>
 			<% end %>
 	</dl>
