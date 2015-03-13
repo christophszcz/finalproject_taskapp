@@ -13,14 +13,18 @@
 
 <div>
 	<h2> Matched Tasks</h2>
+<table>		
 	<tr>
 			<th>Task</th>
 			<th>Customer</th>
 			<th>Worker</th>
 	</tr>
+	<% @my_assignments.each do |match| %>
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td><%= link_to match.title, assignment_path(match.id)%></td>
+		<td><%= match.customer.first_name %> </td>
+		<td><%= match.worker.first_name %></td>
 	</tr>
+	<% end %>
+</table>
 </div>
