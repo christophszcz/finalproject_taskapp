@@ -5,11 +5,12 @@ class AssignmentsController < ApplicationController
 	end
 
 	def create
-		@made_task = Assignment.new(assignment_params)
+		@assignment = Assignment.new(assignment_params)
 		# old: @made_tasks = Assignment.new(assignment_params)
-		@made_task.customer = current_user
+		@assignment.customer = current_user
+		@assignment.updating_assignment = false
 		# onclick current_user.id => worker_id
-		if @made_task.save
+		if @assignment.save
 			redirect_to assignments_path notice: "You have successfully posted a task!"
 			# old: redirect_to assignment_path(@made_task.id)
 		else 
