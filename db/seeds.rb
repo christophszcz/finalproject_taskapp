@@ -15,7 +15,8 @@ puts "\nMaking Spartans..."
 		email: Faker::Internet.email,
 		phone: Faker::PhoneNumber.phone_number,
 		avatar: "",
-		password: "asdf;lkj"
+		password: "asdf;lkj",
+		password_confirmation: "asdf;lkj"
 	)
 	print "|"
 end
