@@ -11,7 +11,9 @@
 
 	<p class="userinfo">
   		<% if current_user %>
-  			Sign in as <%= current_user.first_name %> . <%= link_to "Log out", session_path("current"), :method => :delete %>
+  			You are signed in as <%= current_user.first_name %><br>
+        <%= link_to "My Profile", user_path('show') %> <br>
+         <%= link_to "Log out", session_path("current"), :method => :delete %>
   		<% else %>
   			<%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>
   		<% end %>	
