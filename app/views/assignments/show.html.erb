@@ -14,9 +14,11 @@
 </p>
 <p>
 
-<%= button_to "Accept Task!", user_path, :class => "button", :method => :get %>
-	
+<%= form_for @assignment do |f| %>
 
+<%= f.submit "Accept Task!", :class => "button"%>
+	
+<% end %>
 
 
 
