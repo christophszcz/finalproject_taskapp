@@ -1,4 +1,6 @@
 class Assignment < ActiveRecord::Base
+	scope :newest_first, -> { order("created_at DESC") }
+
 	belongs_to :customer, class_name: "User", foreign_key: "customer_id"
 	belongs_to :worker, class_name: "User", foreign_key: "worker_id"
 
