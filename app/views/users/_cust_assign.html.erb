@@ -1,6 +1,6 @@
 <div>
 	<dl>
-		<h2>My projects</h2>
+		<h2>My created projects</h2>
 			<% @my_assignments.each do |assign| %>
 			<div>
 				<dt><%= link_to assign.title, assignment_path(assign.id)%></dt>
@@ -8,6 +8,18 @@
 				<dd>Task Time: <%=assign.time.strftime("%l:%M %P") %></dd>
 			</div>
 			<% end %>
+	</dl>
+</div>
+<div>
+	<dl>
+		<h2>My selected tasks</h2>
+	<% @worker_assignments.each do |work| %>
+	<div>
+			<dt><%= link_to work.title, assignment_path(work.id) %></dt>
+			<dd>Task date: <%=work.date.strftime("%B %e, %Y") %></dd>
+			<dd>Task time: <%=work.time.strftime("%l:%M %P")%></dd>		
+	</div>
+		<% end %>
 	</dl>
 </div>
 
@@ -24,8 +36,30 @@
 		<td><%= link_to match.title, assignment_path(match.id)%></td>
 		<td><%= match.customer.first_name %> </td>
 		<td><%= match.try(:worker).try(:first_name) %></td>
+		<td><%=link_to "review", review_path('new') %> </td>
 	</tr>
 	<% end %>
 	</table>
+</div>
 
+<div>
+<h2> Matched Tasks as Worker </h2>
+<table>
+	<tr>
+			<th>Task</th>
+			<th>Worker</th>
+			<th>Customer</th>
+
+	</tr>
+	<% @worker_assignments.each do |work| %>
+	<tr>		
+	
+			<td><%= link_to work.title, assignment_path(work.id) %></td>
+			<td><%= work.worker.first_name %></td>
+			<td><%= work.customer.first_name %></td>
+			<td><%=link_to "review", review_path('new') %> </td>
+	</tr>
+<% end %>
+
+	</table>
 </div>

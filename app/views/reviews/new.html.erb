@@ -2,14 +2,17 @@
 
 <%= form_for @review do |f| %>
 
+<%= render partial: 'details' %>
+
 <div class="field">
 		<%= f.label :rating %>
 		<%= f.select :rating, [['1'],['2'],['3'],['4'],['5']]%>
 </div>
 <div class="field">
-		<%= f.label :task_description %>
+		<%= f.label :Comment %>
 		<%= f.text_field :comment %>
 </div></br>
-<%= f.submit %>
+
+<div class="action"><%= f.submit %></div>
 
 <% end %>
