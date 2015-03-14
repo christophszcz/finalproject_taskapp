@@ -11,7 +11,7 @@ class AssignmentsController < ApplicationController
 		@assignment.updating_assignment = false
 		# onclick current_user.id => worker_id
 		if @assignment.save
-			redirect_to assignments_path flash[:notice] =  "You have successfully posted a task!"
+			redirect_to assignments_path
 			# old: redirect_to assignment_path(@made_task.id)
 		else 
 			render :new
