@@ -1,9 +1,6 @@
 class ReviewsController < ApplicationController
 # before_filter :load_assignment
 
-	def new
-		@review = Review.new
-	end
 
 	def index
 		@review = Review.all
@@ -11,7 +8,7 @@ class ReviewsController < ApplicationController
 
 	def create
 		@review = Review.new(review_params)
-		@review.from = current_user
+		@review.user = current_user
 		@review.to = @review.assignment.other_party(current_user)
 
 		if @review.save
@@ -27,7 +24,7 @@ class ReviewsController < ApplicationController
 
 	private
 		def review_params
-			params.require(:review).permit(:assignment_id, :comment, :rating)
+			params.require(:review).permit(:assignment_id, :comment, :rating, :worker, :customer)
 
 	end
 

@@ -1,18 +1,17 @@
 <h1>Review form</h1>
 
-<%= form_for @review do |f| %>
-
-<%= render partial: 'details' %>
-
-<div class="field">
-		<%= f.label :rating %>
-		<%= f.select :rating, [['1'],['2'],['3'],['4'],['5']]%>
+<div>
+	<dl>
+		<% @review_user.each do |q| %>
+		<td><%= link_to q.first_name, user_path(user.id)%></td>
+		
+	</dl>
+	<% end %>
 </div>
-<div class="field">
-		<%= f.label :Comment %>
-		<%= f.text_field :comment %>
-</div></br>
+
+
+
+
 
 <div class="action"><%= f.submit %></div>
 
-<% end %>

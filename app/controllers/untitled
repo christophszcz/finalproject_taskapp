@@ -15,3 +15,13 @@
 	</tr>
 
 <% end %>
+
+
+<div class="field">
+		<%= f.label :rating %>
+		<%= f.select :rating, [['1'],['2'],['3'],['4'],['5']]%>
+</div>
+<div class="field">
+		<%= f.label :Comment %>
+		<%= f.text_area :comment %>
+</div></br>
