@@ -10,8 +10,8 @@ class ReviewsController < ApplicationController
 
 	def create
 		@review = Review.new(review_params)
-		@review.user = current_user
-		@review.to = @review.assignment.other_party(current_user)
+		# @review.user = current_user
+		# @review.to = @review.assignment.other_party(current_user)
 
 		if @review.save
 			redirect_to assignments_path, notice: "Review created successfully"
