@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
 # before_filter :load_assignment
-
-
+	def new
+		@review = Review.new
+	end
+	
 	def index
 		@review = Review.all
 	end
