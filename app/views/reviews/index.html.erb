@@ -1,0 +1,29 @@
+<h1>All Reviews</h1>
+
+<% @reviews.each do |review| %>
+<p>
+	<b>Task</b> 
+	<%= review.assignment_id %>
+</p>
+<p>
+	<b>Customer</b> 
+	<%= review.customer_id %>
+</p>
+<p>
+	<b>Worker</b> 
+	<%= review.worker_id %>
+</p>
+<p>
+	<b>Rating</b> 
+	<%= review.rating %>
+</p>
+<p>
+	<b>Comment</b> 
+	<%= review.comment %>
+</p>
+<br>
+<% end %>
+
+
+
+

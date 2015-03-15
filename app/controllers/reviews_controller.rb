@@ -5,28 +5,25 @@ class ReviewsController < ApplicationController
 	end
 	
 	def index
-		@review = Review.all
+		@reviews = Review.all
 	end
 
 	def create
 		@review = Review.new(review_params)
 		# @review.user = current_user
 		# @review.to = @review.assignment.other_party(current_user)
+		@review.customer = current_user 
 
 		if @review.save
-			redirect_to assignments_path, notice: "Review created successfully"
+			redirect_to assignments_path, notice: "Your review was successfully created!"
 		else 
 			render "assignments/show"
 		end
 	end
 
-	def show 
-		@review = Review.find(params[:id])
-	end
-
 	private
 		def review_params
-			params.require(:review).permit(:assignment_id, :comment, :rating, :worker, :customer)
+			params.require(:review).permit(:assignment_id, :comment, :rating, :worker_id, :customer_id)
 
 	end
 
