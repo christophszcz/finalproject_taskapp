@@ -1,8 +1,8 @@
 <h1><%= @assignment.title %></h1>
 
 <p>
-  <b>Price: $</b> 
-  <%= @assignment.formatted_price %>
+  <b>Price:</b> 
+  <%= number_to_currency(@assignment.price) %>
 </p>
 <p>
   <b>Description:</b>

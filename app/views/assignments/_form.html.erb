@@ -20,15 +20,15 @@
 		<%= f.text_area :description %>
 	</div>
 	<div class="field">
-		<%= f.label :price_for_task %><br />
-		<%= f.text_field :price_in_cents %>
+		<%= f.label :price_for_task %> ($) <br />
+		<%= f.text_field :price %>
 	</div>
 	<div class="field">
 		<%= f.label :due_date %><br />
 		<%= f.date_select :date %>
 	</div>
 	<div class="field">
-		<%= f.label :time_of_day %><br>
+		<%= f.label :time_due %><br>
 		<%= f.time_select :time, {ampm: true} %>
 	</div><br>
 	<div class="actions">

@@ -49,7 +49,7 @@ class AssignmentsController < ApplicationController
 		def assignment_params
 		params.require(:assignment).permit(:title,
 			:description,
-			:price_in_cents, 
+			:price, 
 			:date,
 			:time,
 			:customer_id,
