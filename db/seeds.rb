@@ -27,7 +27,7 @@ puts "\nGiving them suicidal missions...."
 		customer_id: User.all.sample.id,
 		worker_id: User.all.sample.id,
 		description: Faker::Hacker.say_something_smart,
-		price_in_cents: rand(5000),
+		price: rand(5000),
 		date: Date.today + rand(20).days,
 		time: Time.now + rand(500).minutes,
 		title: Faker::App.name

@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310192121) do
+ActiveRecord::Schema.define(version: 20150316142532) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "customer_id"
     t.integer  "worker_id"
     t.text     "description"
-    t.integer  "price_in_cents"
     t.datetime "date"
     t.datetime "time"
     t.string   "title"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "price"
   end
 
   create_table "reviews", force: :cascade do |t|
