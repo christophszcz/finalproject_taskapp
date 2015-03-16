@@ -1,6 +1,12 @@
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="panel1">My created projects</a></li>
+  <li class="tab-title"><a href="panel2">My selected tasks</a></li>
+  <li class="tab-title"><a href="panel3">Matched Tasks as Customer</a></li>
+</ul>
+<div class ="tabs-content">
 <div>
 	<dl>
-		<h2>My created projects</h2>
+		<div class="content active" id="panel1">
 			<% @my_assignments.each do |assign| %>
 			<div>
 				<dt><%= link_to assign.title, assignment_path(assign.id)%></dt>
@@ -54,4 +60,5 @@
 
 	</table>
 
+</div>
 </div>
