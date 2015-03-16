@@ -70,6 +70,9 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    foundation-rails (5.5.1.0)
+      railties (>= 3.1.0)
+      sass (>= 3.3.0, < 3.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -193,6 +196,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   did_you_mean
   faker
+  foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
   pry-rails
