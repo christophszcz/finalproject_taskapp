@@ -2,7 +2,7 @@
 
 <p>
   <b>Price:</b> 
-  <%= number_to_currency(@assignment.price) %>
+  <%= number_to_currency(@assignment.price.to_f) %>
 </p>
 <p>
   <b>Description:</b>
