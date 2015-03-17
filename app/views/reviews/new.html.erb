@@ -1,29 +1,6 @@
-<h1>Review form</h1>
+<h1>Review Form</h1>
 
-<%= form_for @review do |f| %>
+<%= render partial: 'review_form' %><br>
 
-<div class="field">
-	<%= f.label :Customer_number %><br>
-	<%= f.number_field :customer_id %>
-</div>
-<div class="field">
-	<%= f.label :worker_number %><br>
-	<%= f.number_field :worker_id %>
-</div>
-<div class="field">
-	<%= f.label :assignment_number %><br>
-	<%= f.number_field :assignment_id %>
-</div>
-<div class="field">
-		<%= f.label :rating %>
-		<%= f.select :rating, [['1'],['2'],['3'],['4'],['5']]%>
-</div>
-<div class="field">
-		<%= f.label :Comment %><br>
-		<%= f.text_area :comment %>
-</div></br>
 
-<div class="action">
-	<%= f.submit %>
-</div>
-<% end %>
+

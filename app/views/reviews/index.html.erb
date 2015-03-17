@@ -3,17 +3,12 @@
 <% @reviews.each do |review| %>
 <p>
 	<b>Task</b> 
-	<%= review.assignment.title %>
-</p>
-<p>
-	<b>Customer</b> 
-	<%= review.customer.first_name %>
-	<%= review.customer.last_name %>
+	<%= review.title %>
 </p>
 <p>
 	<b>Worker</b> 
-	<%= review.worker.first_name%>
-	<%= review.worker.last_name%>
+	<%= review.first_name %>
+	<%= review.last_name %>
 </p>
 <p>
 	<b>Rating</b> 

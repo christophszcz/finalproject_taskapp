@@ -2,8 +2,18 @@ class ReviewsController < ApplicationController
 # before_filter :load_assignment
 	def new
 		@review = Review.new
+		
+		# if  @review.customer == current_user
+		# 	render 'reviews/new'
+		# elsif current_user == @review.worker
+		# 	raise 'Invalid participant'
+		# elsif @review.user_id == @review.customer_id
+		# 	raise 'Invalid participant'
+		# else
+
+		# end
 	end
-	
+
 	def index
 		@reviews = Review.all
 	end
@@ -19,23 +29,21 @@ class ReviewsController < ApplicationController
 		else 
 			render "assignments/show"
 		end
+
+		# if  @review.customer == current_user
+		# 	render 'reviews/new'
+		# else
+		# 	raise 'Invalid participant'
+		# end
+		
 	end
 
 	private
 		def review_params
-			params.require(:review).permit(:assignment_id, :comment, :rating, :worker_id, :customer_id)
+			params.require(:review).permit(:assignment_id, :comment, :rating, :worker_id, :customer_id, :title, :first_name, :last_name)
 
-	end
+	end	
 
-		# if User.id == customer.id
-		# 	render 'customer_review'
-		# elsif User.id == worker.id
-		# 	render 'worker_review'
-		# else
-		# 	raise 'Invalid participant'
-		# end
-
-# 	end
 
 # 	private
 # 		def load_assignment
