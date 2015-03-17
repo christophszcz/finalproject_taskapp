@@ -36,9 +36,9 @@
 		</div>
 	</div>
 	<div class="row">
-	<div class="small-12 columns">
+	<div class="small-12 columns">	
 		<%= f.label :time_due %><br>
-		<%= f.time_select :time, {ampm: true}, {class: "small-4 columns"} %>
+		<%= f.time_select :time, {ampm: true, :time_separator => "" }, {class: "small-4 columns end"} %>
 		</div>
 		</div>
 	</div><br>

@@ -1,7 +1,7 @@
 <ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#panel1">My created projects</a></li>
+  <li class="tab-title active"><a href="#panel1"  data-options="is_hover:true">My created projects</a></li>
   <li class="tab-title"><a href="#panel2">My selected tasks</a></li>
-  <li class="tab-title"><a href="#panel3">Matched Tasks as Customer</a></li>
+  <li class="tab-title"><a href="#panel3">Matched Tasks</a></li>
 </ul>
 <div class ="tabs-content">
 		<div class="content active" id="panel1">
@@ -17,7 +17,6 @@
 		</div>
 <div class="content" id="panel2">
 	<dl>
-		<h2>My selected tasks</h2>
 	<div>
 	<% @worker_assignments.each do |work| %>
 			<dt><%= link_to work.title, assignment_path(work.id) %></dt>
@@ -29,7 +28,6 @@
 </div>
 
 <div class="content" id="panel3">
-	<h2> Matched Tasks as Customer</h2>
 <table>		
 	<tr>
 			<th>Task</th>

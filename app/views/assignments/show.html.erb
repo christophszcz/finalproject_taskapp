@@ -14,7 +14,7 @@
 </p>
 <p>
   <b>Time due:</b>
-  <%= @assignment.time.strftime("%l:%M %P") %>
+  <%= @assignment.time.strftime("%l %M %P") %>
 </p>
 
 <%= form_for @assignment do |f| %>
@@ -22,9 +22,5 @@
 <%= f.submit "Accept Task!", :class => "button"%>
 	
 <% end %>
-
-
-
-
 
 
