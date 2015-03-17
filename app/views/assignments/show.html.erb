@@ -2,7 +2,7 @@
 
 <p>
   <b>Price:</b> 
-  <%= number_to_currency(@assignment.price.to_f) %>
+  <%= number_to_currency(@assignment.price) %>
 </p>
 <p>
   <b>Description:</b>
@@ -13,6 +13,9 @@
   <%= @assignment.date.strftime("%B/%e/%Y") %>
 </p>
 <p>
+  <b>Time due:</b>
+  <%= @assignment.time.strftime("%l:%M %P") %>
+</p>
 
 <%= form_for @assignment do |f| %>
 
