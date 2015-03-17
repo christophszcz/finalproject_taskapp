@@ -11,6 +11,9 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
+<header>
+  <h1>Task Hackr </h1>
+</header>
 
   <body>
   
@@ -32,6 +35,5 @@
    <p id="alert"><%= flash[:alert] %></p>    
   <% end %>
     <%= yield %>
-
   </body>
 </html>

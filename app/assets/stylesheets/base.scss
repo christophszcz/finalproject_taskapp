@@ -1,0 +1,21 @@
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-family: helvetica;
+	font-size: 20px;
+	line-height: 1.35;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+}
