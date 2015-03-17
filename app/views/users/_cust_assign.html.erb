@@ -1,12 +1,11 @@
 <ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="panel1">My created projects</a></li>
-  <li class="tab-title"><a href="panel2">My selected tasks</a></li>
-  <li class="tab-title"><a href="panel3">Matched Tasks as Customer</a></li>
+  <li class="tab-title active"><a href="#panel1">My created projects</a></li>
+  <li class="tab-title"><a href="#panel2">My selected tasks</a></li>
+  <li class="tab-title"><a href="#panel3">Matched Tasks as Customer</a></li>
 </ul>
 <div class ="tabs-content">
-<div>
-	<dl>
 		<div class="content active" id="panel1">
+		<dl>
 			<% @my_assignments.each do |assign| %>
 			<div>
 				<dt><%= link_to assign.title, assignment_path(assign.id)%></dt>
@@ -14,13 +13,13 @@
 				<dd>Task Time: <%=assign.time.strftime("%l:%M %P") %></dd>
 			</div>
 			<% end %>
-	</dl>
-</div>
-<div>
+		</dl>
+		</div>
+<div class="content" id="panel2">
 	<dl>
 		<h2>My selected tasks</h2>
-	<% @worker_assignments.each do |work| %>
 	<div>
+	<% @worker_assignments.each do |work| %>
 			<dt><%= link_to work.title, assignment_path(work.id) %></dt>
 			<dd>Task date: <%=work.date.strftime("%B %e, %Y") %></dd>
 			<dd>Task time: <%=work.time.strftime("%l:%M %P")%></dd>		
@@ -29,7 +28,7 @@
 	</dl>
 </div>
 
-<div>
+<div class="content" id="panel3">
 	<h2> Matched Tasks as Customer</h2>
 <table>		
 	<tr>
