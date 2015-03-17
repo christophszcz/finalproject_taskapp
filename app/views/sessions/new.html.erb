@@ -1,15 +1,17 @@
-<h1>Log in </h1>
+
+
+<h3>Log in </h3>
 
 <%= form_tag sessions_path do %>
 	<div class="row">
 		<%= label_tag :email %><br/>
-		<div class="large-4 columns">
+		<div class="small-4 columns">
 			<%= text_field_tag :email, params[:email] %>
 		</div>
 	</div>
 	<div class="row">
 		<%= label_tag :password %><br/>
-		<div class="large-4 columns">
+		<div class="small-4 columns">
 			<%= password_field_tag :password %>
 		</div>
 	</div>
