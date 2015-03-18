@@ -4,7 +4,7 @@
   <li class="tab-title"><a href="#panel3">Matched Tasks</a></li>
 </ul>
 <div class ="tabs-content">
-		<div class="content active" id="panel1">
+	<div class="content active" id="panel1">
 		<dl>
 			<% @my_assignments.each do |assign| %>
 			<div>
@@ -14,48 +14,48 @@
 			</div>
 			<% end %>
 		</dl>
-		</div>
-<div class="content" id="panel2">
-	<dl>
-	<div>
-	<% @worker_assignments.each do |work| %>
-			<dt><%= link_to work.title, assignment_path(work.id) %></dt>
-			<dd>Task date: <%=work.date.strftime("%B %e, %Y") %></dd>
-			<dd>Task time: <%=work.time.strftime("%l:%M %P")%></dd>		
 	</div>
-		<% end %>
-	</dl>
-</div>
+	<div class="content" id="panel2">
+		<dl>
+		<div>
+			<% @worker_assignments.each do |work| %>
+				<dt><%= link_to work.title, assignment_path(work.id) %></dt>
+				<dd>Task date: <%=work.date.strftime("%B %e, %Y") %></dd>
+				<dd>Task time: <%=work.time.strftime("%l:%M %P")%></dd>		
+			<% end %>
+		</div>
+		</dl>
+	</div>
 
-<div class="content" id="panel3">
-<table>		
-	<tr>
-			<th>Task</th>
-			<th>Customer</th>
-			<th>Worker</th>
-	</tr>
-	<% @my_assignments.each do |match| %>
-	<tr>
-		<td><%= link_to match.title, assignment_path(match.id)%></td>
-		<td><%= match.customer.first_name %> </td>
-		<td><%= match.try(:worker).try(:first_name) %></td>
-		<td><%= link_to "review", review_path('new') %> </td>
-	<% end %>
-</div>
-
-
-<div>
-	</tr>
-	<% @worker_assignments.each do |work| %>
-	<tr>		
-	
-			<td><%= link_to work.title, assignment_path(work.id) %></td>
-			<td><%= work.customer.first_name %></td>
-			<td><%= work.worker.first_name %></td>
+	<div class="content" id="panel3">
+	<table>		
+		<tr>
+				<th>Task</th>
+				<th>Customer</th>
+				<th>Worker</th>
+		</tr>
+		<% @my_assignments.each do |match| %>
+		<tr>
+			<td><%= link_to match.title, assignment_path(match.id)%></td>
+			<td><%= match.customer.first_name %> </td>
+			<td><%= match.try(:worker).try(:first_name) %></td>
 			<td><%= link_to "review", review_path('new') %> </td>
-<% end %>
+		<% end %>
+	</div>
 
-	</table>
 
-</div>
+	<div>
+		</tr>
+		<% @worker_assignments.each do |work| %>
+		<tr>		
+		
+				<td><%= link_to work.title, assignment_path(work.id) %></td>
+				<td><%= work.customer.first_name %></td>
+				<td><%= work.worker.first_name %></td>
+				<td><%= link_to "review", review_path('new') %> </td>
+		<% end %>
+
+		</table>
+
+	</div>
 </div>
