@@ -93,6 +93,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_magick (4.1.0)
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
@@ -197,6 +198,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick (~> 4.1.0)
   pry-rails
   quiet_assets
   rails (= 4.2.0)

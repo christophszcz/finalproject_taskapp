@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 	has_many :customer_reviews, class_name: "Review", foreign_key: :customer_id
 	has_many :worker_reviews, class_name: "Review", foreign_key: :worker_id
 
+	mount_uploader :avatar, AvatarUploader
+
 	def accept(assignment)
 		return if assignment.customer == self
 		assignment.worker = self
