@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @my_assignments = current_user.made_tasks
+    @user               = User.find params[:id]
+    @my_assignments     = @user.made_tasks
     @worker_assignments = current_user.accepted_tasks 
-
+    @reviews_about_me   = Review.to(current_user)
   end
   
   
