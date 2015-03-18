@@ -16,17 +16,37 @@
 </header>
 
   <body>
-  
-  <p class="userinfo">
-    <% if current_user %>   
-       You are signed in as <%= current_user.first_name %><br>   
-        <%= link_to "My Profile", user_path('show') %> <br>    
-         <%= link_to "Log out", session_path("current"), :method => :delete %>   
-     <% else %>    
-       <%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %>    
-     <% end %>     
-   </p>   
-   </nav> 
+    <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Task Hackr</a></h1>
+       
+      </li>
+      <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+        <ul class="left">
+           <li> <%= link_to 'Home', assignments_path %></li>
+         </ul>
+      <ul class="right">
+        <li class="userinfo">
+        </li>
+        
+        <li class="has-dropdown">
+          <a href="#">User</a>
+          <ul class="dropdown">
+
+            <% if current_user %>  
+              <li><%= link_to "#{current_user.first_name}'s Profile", user_path('show') %></li>
+              <li><%= link_to "Log out #{current_user.first_name}", session_path("current"), :method => :delete %></li>
+             <% else %>    
+               <li><%= link_to "Log in", new_session_path %> or <%= link_to "Sign up", new_user_path %></li>
+             <% end %>     
+          </ul>
+        </li>
+     </ul>  
+     </section>
+   </nav>
    
  <% if flash[:notice] %>   
    <p id="notice" ><%= flash[:notice] %></p>   
