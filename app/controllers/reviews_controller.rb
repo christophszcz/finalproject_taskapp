@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-# before_filter :load_assignment
+	before_filter :load_assignment
+
 	def new
 		@review = Review.new
 		
@@ -19,15 +20,18 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = Review.new(review_params)
+		@review = @assignment.reviews.new(review_params)
 		# @review.user = current_user
 		# @review.to = @review.assignment.other_party(current_user)
-		@review.customer = current_user 
+
+		@review.from = current_user 
+		other        = @assignment.other_party(current_user)
+		@review.to   = other
 
 		if @review.save
-			redirect_to assignments_path, notice: "Your review was successfully created!"
-		else 
-			render "assignments/show"
+			redirect_to user_path(other), notice: "Your review was successfully created!"
+		else
+			render "new"
 		end
 
 		# if  @review.customer == current_user
@@ -40,13 +44,13 @@ class ReviewsController < ApplicationController
 
 	private
 		def review_params
-			params.require(:review).permit(:assignment_id, :comment, :rating, :worker_id, :customer_id, :title, :first_name, :last_name)
+			params.require(:review).permit(:comment, :rating)
 
-	end	
+		end	
 
 
-# 	private
-# 		def load_assignment
-# 			@assignment = Assignment.find(params[:assignment_id])
-# 		end
+	private
+		def load_assignment
+			@assignment = Assignment.find(params[:assignment_id])
+		end
 end

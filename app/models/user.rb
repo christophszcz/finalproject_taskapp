@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 	authenticates_with_sorcery!
 	validates :password, confirmation: true
-  validates :password_confirmation, presence: true
-
+	validates :password_confirmation, presence: true
+  
   validates :email, uniqueness: true
 
 	has_many :made_tasks, class_name: "Assignment", foreign_key: :customer_id

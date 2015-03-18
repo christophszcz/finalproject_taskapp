@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317002505) do
+ActiveRecord::Schema.define(version: 20150318212939) do
 
   create_table "assignments", force: :cascade do |t|
     t.integer  "customer_id"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20150317002505) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "customer_id"
-    t.integer  "worker_id"
+    t.integer  "to_id"
+    t.integer  "from_id"
     t.integer  "assignment_id"
     t.integer  "rating"
     t.text     "comment"

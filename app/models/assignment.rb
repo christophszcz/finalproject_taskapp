@@ -9,6 +9,9 @@ class Assignment < ActiveRecord::Base
 	belongs_to :customer, class_name: "User", foreign_key: "customer_id"
 	belongs_to :worker, class_name: "User", foreign_key: "worker_id"
 
+	has_many :reviews
+
+
 	# def customer_ratings
 	# 	ratings.where(user: customer)
 	# end

@@ -5,10 +5,11 @@ class AssignmentsController < ApplicationController
 	end
 
 	def create
-		@assignment = Assignment.new(assignment_params)
-		# old: @made_tasks = Assignment.new(assignment_params)
-		@assignment.customer = current_user
+		# old: @made_tasks              = Assignment.new(assignment_params)
+		@assignment                     = Assignment.new(assignment_params)
+		@assignment.customer            = current_user
 		@assignment.updating_assignment = false
+
 		# onclick current_user.id => worker_id
 		if @assignment.save
 			redirect_to assignments_path flash[:notice] =  "You have successfully posted a task!"
@@ -32,10 +33,12 @@ class AssignmentsController < ApplicationController
 	end
 
 	def update
-		@assignment = Assignment.find(params[:id])
+		@assignment        = Assignment.find(params[:id])
 		@assignment.worker = current_user
+		
 		if @assignment.save
-			redirect_to assignments_path flash[:notice] = "You have successfully accepted a task!"
+			flash[:notice] = "You have successfully accepted a task!"
+			redirect_to assignment_path(@assignment) 
 		else
 			render :new
 		end

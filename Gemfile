@@ -38,13 +38,12 @@ gem 'foundation-rails'
 gem 'mini_magick', '~> 4.1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
   gem 'pry-rails'
   gem 'faker'
   gem 'did_you_mean'
   gem 'quiet_assets'
+  gem 'best_errors'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   gem 'awesome_print'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

@@ -2,6 +2,7 @@
   <li class="tab-title active"><a href="#panel1"  data-options="is_hover:true">My created projects</a></li>
   <li class="tab-title"><a href="#panel2">My selected tasks</a></li>
   <li class="tab-title"><a href="#panel3">Matched Tasks</a></li>
+  <li class="tab-title"><a href="#panel4">Reviews About <%= @user.first_name %></a></li>
 </ul>
 <div class ="tabs-content">
 	<div class="content active" id="panel1">
@@ -20,8 +21,8 @@
 		<div>
 			<% @worker_assignments.each do |work| %>
 				<dt><%= link_to work.title, assignment_path(work.id) %></dt>
-				<dd>Task date: <%=work.date.strftime("%B %e, %Y") %></dd>
-				<dd>Task time: <%=work.time.strftime("%l:%M %P")%></dd>		
+				<dd>Task date due: <%=work.date.strftime("%B %e, %Y") %></dd>
+				<dd>Task time due: <%=work.time.strftime("%l:%M %P")%></dd>		
 			<% end %>
 		</div>
 		</dl>
@@ -52,10 +53,15 @@
 				<td><%= link_to work.title, assignment_path(work.id) %></td>
 				<td><%= work.customer.first_name %></td>
 				<td><%= work.worker.first_name %></td>
-				<td><%= link_to "review", review_path('new') %> </td>
+				<td><%= link_to "review", new_assignment_review_path(work) %> </td>
 		<% end %>
 
 		</table>
 
+	</div>
+
+
+	<div class="content" id="panel4">
+		<%= render @reviews_about_me %>
 	</div>
 </div>

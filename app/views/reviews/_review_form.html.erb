@@ -1,4 +1,3 @@
-<%= form_for(@review) do |f| %>
 
  <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -13,28 +12,19 @@
   <% end %>
 
 <h4>Worker</h4>
-<div class="field">
-	<%= f.label :first_name %><br>
-	<%= f.text_field :first_name %>
-</div>
-<div class="field">
-	<%= f.label :last_name %><br>
-	<%= f.text_field :last_name %>
-</div>
-<div class="field">
-	<%= f.label :assignment_name %><br>
-	<%= f.text_field :title %>
-</div>
-<div class="field">
-		<%= f.label :rating %>
-		<%= f.select :rating, [['1'],['2'],['3'],['4'],['5']]%>
-</div>
-<div class="field">
-		<%= f.label :Comment %><br>
-		<%= f.text_area :comment %>
-</div></br>
+<%= render @assignment %>
 
-<div class="action">
-	<%= f.submit %>
-</div>
+<%= form_for([@assignment, @review]) do |f| %>
+	<div class="field">
+			<%= f.label :rating %>
+			<%= f.select :rating, [['1'],['2'],['3'],['4'],['5']]%>
+	</div>
+	<div class="field">
+			<%= f.label :Comment %><br>
+			<%= f.text_area :comment %>
+	</div></br>
+
+	<div class="action">
+		<%= f.submit %>
+	</div>
 <% end %>

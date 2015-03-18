@@ -2,13 +2,18 @@ Rails.application.routes.draw do
 
   root 'sessions#new'
  
-  resources :users, only: [:new, :create, :show, :edit]
+  resources :users
+  # , only: [:new, :create, :show, :edit]
     
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions
+  # , only: [:new, :create, :destroy]
 
-  resources :reviews, only:[:new, :create, :show, :index]
+  resources :reviews 
+  # # , only:[:new, :create, :show, :index]
 
-  resources :assignments, except:[:destroy]
+  resources :assignments, except:[:destroy] do
+    resources :reviews
+  end
 
   get 'login' => 'sessions#new', as: :login
   get 'logout' => 'sessions#destroy', as: :logout
