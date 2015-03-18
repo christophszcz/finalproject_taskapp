@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		redirect_to assignments_url, notice: "You are now signed up!"
+      auto_login(@user)
+  		redirect_to assignments_url
   	else 
   		render "new"
   	end
