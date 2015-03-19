@@ -1,6 +1,7 @@
 class UserMailer < ApplicationMailer
 # default from: 'myemail@gmail.com'
 
+
   def exchange_information(assignment)
     @assignment = assignment
     mail(to: @assignment.customer.email, cc: @assignment.worker.email, subject: "Information exchange")
