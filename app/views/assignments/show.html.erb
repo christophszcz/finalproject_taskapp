@@ -17,10 +17,5 @@
   <%= @assignment.time.strftime("%l:%M %P") %>
 </p>
 
-<%= form_for @assignment do |f| %>
 
-<%= f.submit "Accept Task!", :class => "button", data: { disable_with: "Taken!" }%>
-	
-<% end %>
-
-
+<%= link_to 'Send', :controller => :assignments, :action => :assign_me, :id => @assignment %> 

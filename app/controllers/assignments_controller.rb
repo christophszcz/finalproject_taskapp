@@ -17,6 +17,7 @@ class AssignmentsController < ApplicationController
 		else 
 			render :new
 		end
+	
 	end
 
 
@@ -35,7 +36,6 @@ class AssignmentsController < ApplicationController
 	def update
 		@assignment        = Assignment.find(params[:id])
 		@assignment.worker = current_user
-		
 		if @assignment.save
 			flash[:notice] = "You have successfully accepted a task!"
 			redirect_to assignment_path(@assignment) 
@@ -48,6 +48,15 @@ class AssignmentsController < ApplicationController
 	# 	@assignment = Assignment.find(params[:id])
 	# end
 
+	def assign_me
+		@assignment        = Assignment.find(params[:id])
+		@assignment.worker = current_user
+		@assignment.save 
+		UserMailer.exchange_information(@assignment).deliver_now
+		flash[:notice] = "Your email has been sent!"
+		redirect_to assignment_path(@assignment)
+	end
+
 	private
 		def assignment_params
 		params.require(:assignment).permit(:title,
@@ -58,6 +67,5 @@ class AssignmentsController < ApplicationController
 			:customer_id,
 			:worker_id
 		)
-	end
-
+		end
 end
