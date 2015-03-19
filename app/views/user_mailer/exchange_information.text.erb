@@ -1,0 +1,14 @@
+Hi <%= @assignment.customer.first_name %> and <%= @assignment.worker.first_name %>,
+
+Thanks for joining our service! Here is the contact information for the customer and worker that have been assigned to <%= @assignment.title %>.
+  Customer: <%= @assignment.customer.email %>
+  <%= @assignment.customer.phone %>
+
+  Worker: <%= @assignment.worker.email %>
+  <%= @assignment.worker.phone %>
+
+  Please contact each other, arrange to meet, complete the transaction and write a review.
+
+  Thanks!
+
+  -Task Hackr Team 
