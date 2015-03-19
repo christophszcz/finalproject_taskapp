@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'sessions#index'
   
   # get '/assignments/:id/send_mail', to: 'assignments#send_mail'
 
