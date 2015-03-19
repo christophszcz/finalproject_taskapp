@@ -17,5 +17,6 @@
   <%= @assignment.time.strftime("%l:%M %P") %>
 </p>
 
-
-<%= link_to 'Send', :controller => :assignments, :action => :assign_me, :id => @assignment %> 
+<% if @assignment.worker.nil? %>
+  <%= link_to 'Accept Task!', {:controller => :assignments, :action => :assign_me, :id => @assignment}, {"data-icon" => "button", "id" => "a"}%> 
+<% end %>
