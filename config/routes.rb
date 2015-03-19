@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   root 'sessions#new'
- 
+  
+  # get '/assignments/:id/send_mail', to: 'assignments#send_mail'
+
   resources :users
   # , only: [:new, :create, :show, :edit]
     
@@ -11,8 +13,15 @@ Rails.application.routes.draw do
   resources :reviews 
   # # , only:[:new, :create, :show, :index]
 
+  # get "/assignments/:assignment_id/assign_me", :to => "assignments#assign_me"
+
+  
   resources :assignments, except:[:destroy] do
+    get 'assign_me', on: :member 
     resources :reviews
+    member do
+      # get :assign_me
+    end
   end
 
   get 'login' => 'sessions#new', as: :login
