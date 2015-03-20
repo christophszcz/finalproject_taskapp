@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user               = User.find params[:id]
     @my_assignments     = @user.made_tasks
     @worker_assignments = current_user.accepted_tasks 
-    @reviews_about_me   = Review.to(current_user)
+    @reviews_about_me   = Review.worker(current_user)
   end
   
   

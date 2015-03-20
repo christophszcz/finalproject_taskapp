@@ -28,6 +28,16 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def other_party(user)
+		if customer == user
+		worker
+		elsif worker == user
+			customer
+		else
+			raise "Invalid Participant"
+		end
+	end
+
 	private
 	def owns?(assignment)
 		assignment.customer_id == id
