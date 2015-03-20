@@ -7,30 +7,31 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-puts "\nMaking Spartans..."
-300.times do
-	User.create!(
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		email: Faker::Internet.email,
-		phone: Faker::PhoneNumber.phone_number,
-		avatar: "",
-		password: "asdf;lkj",
-		password_confirmation: "asdf;lkj"
-	)
-	print "|"
-end
+# puts "\nMaking Spartans..."
+# 300.times do
+# 	User.create!(
+# 		first_name: Faker::Name.first_name,
+# 		last_name: Faker::Name.last_name,
+# 		email: Faker::Internet.email,
+# 		phone: Faker::PhoneNumber.phone_number,
+# 		avatar: "",
+# 		password: "asdf;lkj",
+# 		password_confirmation: "asdf;lkj"
+# 	)
+# 	print "|"
+# end
 
-puts "\nGiving them suicidal missions...."
-600.times do
-	Assignment.create!(
-		customer_id: User.all.sample.id,
-		worker_id: User.all.sample.id,
-		description: Faker::Hacker.say_something_smart,
-		price: rand(50),
-		date: Date.today + rand(20).days,
-		time: Time.now + rand(500).minutes,
-		title: Faker::App.name
-	)
-	print "|"
-end
+# puts "\nGiving them suicidal missions...."
+# 600.times do
+# 	Assignment.create!(
+# 		customer_id: User.all.sample.id,
+# 		worker_id: User.all.sample.id,
+# 		description: Faker::Hacker.say_something_smart,
+# 		price: rand(50),
+# 		date: Date.today + rand(20).days,
+# 		time: Time.now + rand(500).minutes,
+# 		title: Faker::App.name
+# 	)
+# 	print "|"
+# end
+
