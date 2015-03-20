@@ -1,21 +1,21 @@
 class Review < ActiveRecord::Base
-	belongs_to :from, class_name: 'User', foreign_key: "from_id"
-	belongs_to :to, class_name: 'User', foreign_key: "to_id"
+	belongs_to :customer, class_name: 'User', foreign_key: "customer_id"
+	belongs_to :worker, class_name: 'User', foreign_key: "worker_id"
 	belongs_to :assignment
 
-	def self.from(user)
-		where(from: user)
+	def self.customer(user)
+		where(customer: user)
 	end
 
-	def self.to(user)
-		where(to: user)
+	def self.worker(user)
+		where(worker: user)
 	end
 
 	def other_party(user)
-		if from == user
-			to
-		elsif to == user
-			from
+		if customer == user
+		worker
+		elsif worker == user
+			customer
 		else
 			raise "Invalid Participant"
 		end

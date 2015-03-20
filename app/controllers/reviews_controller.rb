@@ -24,9 +24,9 @@ class ReviewsController < ApplicationController
 		# @review.user = current_user
 		# @review.to = @review.assignment.other_party(current_user)
 
-		@review.from = current_user 
+		@review.customer = current_user 
 		other        = @assignment.other_party(current_user)
-		@review.to   = other
+		@review.worker  = other
 
 		if @review.save
 			redirect_to user_path(other), notice: "Your review was successfully created!"

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :sessions
   # , only: [:new, :create, :destroy]
 
-  resources :reviews 
+  # resources :reviews 
   # # , only:[:new, :create, :show, :index]
 
   # get "/assignments/:assignment_id/assign_me", :to => "assignments#assign_me"
