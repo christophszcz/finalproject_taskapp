@@ -1,21 +1,4 @@
-<h1><%= @assignment.title %></h1>
-
-<p>
-  <b>Price:</b> 
-  <%= number_to_currency(@assignment.price) %>
-</p>
-<p>
-  <b>Description:</b>
-  <%= @assignment.description %>
-</p>
-<p>
-  <b>Date due:</b>
-  <%= @assignment.date.strftime("%B/%e/%Y") %>
-</p>
-<p>
-  <b>Time due:</b>
-  <%= @assignment.time.strftime("%l:%M %P") %>
-</p>
+<%= render @assignment %>
 
 <% if @assignment.worker.nil? %>
   <%= link_to 'Accept Task!', {:controller => :assignments, :action => :assign_me, :id => @assignment}, {"data-icon" => "button", "id" => "a"}%> 

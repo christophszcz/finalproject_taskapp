@@ -1,3 +1,18 @@
-<p> 
-<%= h review.inspect %>
-</p>
+
+<table>		
+		<tr>
+				<th>Task</th>
+				<th>Review From</th>
+				<th>Review of </th>
+				<th>Rating (out of 5)</th>
+				<th>Comment</th>
+		<tr>
+			<td><%= review.assignment.title %></td>
+			<td><%= review.customer.first_name %></td>
+			<td><%= review.worker.first_name %></td>
+			<td><%= review.rating %></td>
+			<td><%= review.comment %></td>
+			</tr>
+		</table>
+
+	</div>
