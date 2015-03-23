@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "Task Hackr" %></title>
-
+    <link href='http://fonts.googleapis.com/css?family=Lato|Oswald|Roboto+Condensed' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+   
+    <title><%= content_for?(:title) ? yield(:title) : "Task Hackr" %></title>
   </head>
 <header>
   <%=image_tag("LOGO.png")%>
