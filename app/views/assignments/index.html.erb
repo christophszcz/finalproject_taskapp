@@ -1,19 +1,21 @@
 
- <h1 style="font-family:Oswald,sans-serif">All TASKS</h1>
+ <h1 style="font-family:Oswald,sans-serif">All TASKS </h1>
+
  
-<% @assignments = Assignment.newest_first %>
-<% @assignments.each do |assignment| %>
-<div style="font-family:Lato,sans-serif">
-  <b>Task Title: </b>
-  <%= link_to(assignment.title, assignment_path(assignment)) %>
-</div>
-<div style="font-family:Lato,sans-serif">
-  <b>Price:</b>
-  <%= number_to_currency(assignment.price) %>
-</div>
+ 
+	<% @assignments = Assignment.newest_first %>
+	<% @assignments.each do |assignment| %>
+	<div style="font-family:Lato,sans-serif">
+	  <b>Task Title: </b>
+	  <%= link_to(assignment.title, assignment_path(assignment)) %>
+	</div>
+	<div style="font-family:Lato,sans-serif">
+	  <b>Price:</b>
+	  <%= number_to_currency(assignment.price) %>
+	</div>
 
 
-</br>
-<% end %>
+	</br>
+	<% end %>
 
 

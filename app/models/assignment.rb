@@ -11,7 +11,6 @@ class Assignment < ActiveRecord::Base
 
 	has_many :reviews
 
-
 	# def customer_ratings
 	# 	ratings.where(user: customer)
 	# end
