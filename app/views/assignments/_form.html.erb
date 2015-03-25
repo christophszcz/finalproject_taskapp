@@ -12,31 +12,31 @@
 	<% end %>
 	
 	<div class="row">
-		<div class="small-4 columns">
+		<div class="small-4 columns" id="enter_task">
 		<%=	f.label :title %><br />
 		<%= f.text_field :title %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-4 columns">
+		<div class="small-4 columns" id="enter_task">
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-4 columns">
+		<div class="small-4 columns" id="enter_task">
 		<%= f.label :price_for_task %> ($) <br />
 		<%= f.text_field :price %>
 		</div>
 	</div>
 	<div class="row">	
-		<div class="small-12 columns">
+		<div class="small-4 columns" id="enter_task">
 			<%= f.label :due_date %><br />
-			<%= f.date_select :date, {}, {class: "small-4 columns"} %>
+			<%= f.date_select :date, :order => [:month, :day, :year] %>
 		</div>
 	</div>
 	<div class="row">
-	<div class="small-12 columns">	
+	<div class="small-12 columns" id="enter_task">	
 		<%= f.label :time_due %><br>
 		<%= f.time_select :time, {ampm: true, :time_separator => "" }, {class: "small-4 columns end"} %>
 		</div>

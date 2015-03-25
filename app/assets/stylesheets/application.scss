@@ -1,3 +1,4 @@
+ @import 'foundation_and_overrides';
 
  @import 'base';
 
@@ -5,15 +6,13 @@
  @import 'assignments';
  @import 'sessions';
  @import 'reviews';
- @import 'foundation_and_overrides';
 
  header {
  	text-align: center;
  	background-color: #000000;
  }
 
-p{
-	.slogan {
-	text-decoration: underline;
-	}
+.left{
+	font-family: 'Montserrat', sans-serif;
 }
+
