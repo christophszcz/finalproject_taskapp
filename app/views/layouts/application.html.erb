@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='http://fonts.googleapis.com/css?family=Lato|Oswald|Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato|Roboto+Condensed|Oswald|Montserrat' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
@@ -13,6 +13,8 @@
   </head>
 <header>
   <%=image_tag("LOGO.png")%>
+
+    <h6 class="slogan"><strong>NEED MORE TIME? STRESSED? MONEY PROBLEMS?</strong> …there’s a hack for that.</h6>
 </header>
 
   <body>
@@ -22,17 +24,20 @@
         <h1></h1>
        </li>
       <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+    <% unless @current_user.nil? %> 
     </ul>
     <section class="top-bar-section">
         <ul class="left">
-           <li> <%= link_to 'Home', root_path %></li>
+        
            <li> <%= link_to 'Hackable Tasks', assignments_path %> </li>
            <li> <%=link_to "Create a New Task", new_assignment_path %></li>
          
              <li><%=link_to "View All Users", users_path() %></li>
+            
       
 
          </ul>
+  
 
 
       <ul class="right">
@@ -51,6 +56,7 @@
              <% end %>     
           </ul>
         </li>
+        <% end %>
      </ul>  
      </section>
    </nav>
@@ -62,5 +68,7 @@
    <p id="alert"><%= flash[:alert] %></p>    
   <% end %>
     <%= yield %>
-  </body>
+    <footer>
+    </footer>
+   
 </html>

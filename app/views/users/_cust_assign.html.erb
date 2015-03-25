@@ -22,7 +22,7 @@
 			<% @worker_assignments.each do |work| %>
 				<dt><%= link_to work.title, assignment_path(work.id) %></dt>
 				<dd>Task date due: <%=work.date.strftime("%B %e, %Y") %></dd>
-				<dd>Task time due: <%=work.time.strftime("%l:%M %P")%></dd>		
+				<dd >Task time due: <%=work.time.strftime("%l:%M %P")%></dd>		
 			<% end %>
 		</div>
 		</dl>

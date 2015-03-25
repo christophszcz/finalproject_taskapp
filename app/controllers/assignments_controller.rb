@@ -27,9 +27,7 @@ class AssignmentsController < ApplicationController
 
 	def index
 		@assignments = Assignment.all
-
-
-
+		@assignments = Assignment.order('assignments.created_at DESC').page(params[:page]).order(:name)
 	end
 
 	def show
