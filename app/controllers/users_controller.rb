@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login
+ 
   def index
     @users = User.all
   end 
@@ -24,6 +25,13 @@ class UsersController < ApplicationController
     @reviews_about_me   = Review.worker(current_user)
   end
   
+  def edit
+    @assignment = Assignment.find(params[:id]) 
+      @assignment.worker_id = nil
+      @assignment.save
+    redirect_to assignments_path
+  end
+
   
   private
   def user_params

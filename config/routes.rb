@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # get "/assignments/:assignment_id/assign_me", :to => "assignments#assign_me"
 
   
-  resources :assignments, except:[:destroy] do
+  resources :assignments do
     get 'assign_me', on: :member 
     resources :reviews
     member do
