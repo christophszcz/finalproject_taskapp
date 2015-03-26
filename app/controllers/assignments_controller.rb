@@ -58,6 +58,8 @@ class AssignmentsController < ApplicationController
 		redirect_to assignment_path(@assignment)
 	end
 
+	
+
 	private
 		def assignment_params
 		params.require(:assignment).permit(:title,
