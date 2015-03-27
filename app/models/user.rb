@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 	authenticates_with_sorcery!
+
+	scope :newest_first, -> { order("created_at DESC") }
+
 	validates :password, confirmation: true
 	validates :password_confirmation, presence: true
   

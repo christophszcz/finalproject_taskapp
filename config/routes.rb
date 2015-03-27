@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get '/assignments/:id/send_mail', to: 'assignments#send_mail'
 
   resources :users
+  
   # , only: [:new, :create, :show, :edit]
     
   resources :sessions

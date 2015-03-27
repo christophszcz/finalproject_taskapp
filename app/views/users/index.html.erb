@@ -1,0 +1,12 @@
+<h1 style="font-family:Oswald,sans-serif">All USERS </h1>
+<ul>
+  <% @users.each do |user| %>
+  <div style="font-family:Lato,sans-serif">
+    <p>
+      <a href="<%= user_path(user) %>">  
+        <%= user.first_name %>  
+        <%= user.last_name %>  
+      </a>
+    </p>
+  <% end %>
+</ul>
