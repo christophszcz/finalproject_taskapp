@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   skip_before_filter :require_login
   
   def index
-    @users = User.all
-  end 
+    if params[:search]
+      @users = User.search(params[:search]).order("created_at DESC")
+    else
+      @users = User.all.order('created_at DESC')
+    end
+  end
 
   def new
   	@user = User.new
