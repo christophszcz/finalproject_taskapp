@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login
+  
   def index
     @users = User.all
   end 
+
   def new
   	@user = User.new
   end
@@ -18,12 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user               = User.find params[:id]
+    @user               = User.find(params[:id])
     @my_assignments     = @user.made_tasks
     @worker_assignments = current_user.accepted_tasks 
     @reviews_about_me   = Review.worker(current_user)
-  end
-  
+  end  
   
   private
   def user_params
@@ -35,7 +36,8 @@ class UsersController < ApplicationController
       :password, 
       :password_confirmation,
       :avatar,
-      :avatar_cache
+      :avatar_cache,
+      :school
       )
   end
 end
