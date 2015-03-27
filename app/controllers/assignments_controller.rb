@@ -25,9 +25,17 @@ class AssignmentsController < ApplicationController
 	# 	  @assignment_manager = Assignment_manager.find(params[:id])
 	# end
 
+	# def index
+	# 	@assignments = Assignment.search(params[:search])
+	# 	@assignments = Assignment.order('assignments.created_at DESC').page(params[:page]).order(:name)
+	# end
+
 	def index
-		@assignments = Assignment.all
-		@assignments = Assignment.order('assignments.created_at DESC').page(params[:page]).order(:name)
+	  if params[:search]
+	    @assignments = Assignment.search(params[:search]).order("created_at DESC")
+	  else
+	    @assignments = Assignment.all.order('created_at DESC')
+	  end
 	end
 
 	def show

@@ -1,7 +1,11 @@
  <h1 class="all_tasks">All TASKS </h1>
 
- 
- 
+	<%= form_tag(assignments_path, :method => "get", id: "search-form") do %>
+  	<%= text_field_tag :search, params[:search], placeholder: "Search Task Title" %>
+  	<%= submit_tag "Search", :name => nil %>
+	<% end %>
+
+
 	<% @assignments = Assignment.newest_first %>
 	<% @assignments.each do |assignment| %>
 	<div class="show_tasks">

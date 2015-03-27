@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def self.search(query)
+  	where("first_name like ?", "%#{query}%") 
+	end
+
 	private
 	def owns?(assignment)
 		assignment.customer_id == id
