@@ -22,13 +22,14 @@
 			<% @worker_assignments.each do |work| %>
 				<dt><%= link_to work.title, assignment_path(work.id) %></dt>
 				<dd>Task date due: <%=work.date.strftime("%B %e, %Y") %></dd>
-				<dd>Task time due: <%=work.time.strftime("%l:%M %P")%></dd>		
+				<dd >Task time due: <%=work.time.strftime("%l:%M %P")%></dd>		
 			<% end %>
 		</div>
 		</dl>
 	</div>
 
 	<div class="content" id="panel3">
+	
 	<table>		
 		<tr>
 				<th>Task</th>
@@ -40,10 +41,11 @@
 			<td><%= link_to match.title, assignment_path(match.id)%></td>
 			<td><%= match.customer.first_name %> </td>
 			<td><%= match.try(:worker).try(:first_name) %></td>
-			<td><%= link_to "review", new_assignment_review_path(match) %> </td>
+			<td><%= link_to "Review", new_assignment_review_path(match) %> </td>
+			<td><%= link_to "Cancel", edit_user_path(match)%> </td>
+		
 		<% end %>
 	</div>
-	
 	<div>
 		</tr>
 		<% @worker_assignments.each do |work| %>
@@ -54,6 +56,7 @@
 				<td><%= work.worker.first_name %></td>
 				<td><%= link_to "review", new_assignment_review_path(work) %> </td>
 		<% end %>
+	
 
 		</table>
 
