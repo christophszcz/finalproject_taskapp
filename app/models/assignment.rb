@@ -2,6 +2,7 @@ class Assignment < ActiveRecord::Base
 	attr_accessor :updating_assignment
 
 	scope :newest_first, -> { order("created_at DESC") }
+	scope :active, -> {where("date > ?", Time.now)}
 
 	validates :customer, presence: true
 	validate :should_validate_assignment?
@@ -10,6 +11,7 @@ class Assignment < ActiveRecord::Base
 	belongs_to :worker, class_name: "User", foreign_key: "worker_id"
 
 	has_many :reviews
+
 
 	# def customer_ratings
 	# 	ratings.where(user: customer)
