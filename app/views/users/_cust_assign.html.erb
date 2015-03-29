@@ -42,7 +42,7 @@
 			<td><%= match.customer.first_name %> </td>
 			<td><%= match.try(:worker).try(:first_name) %></td>
 			<td><%= link_to "Review", new_assignment_review_path(match) %> </td>
-			<td><%= link_to "Cancel", edit_user_path(match)%> </td>
+			<td><%= link_to "Cancel Worker", edit_user_path(match)%> </td>
 		
 		<% end %>
 	</div>
