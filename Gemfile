@@ -39,7 +39,7 @@ gem 'carrierwave'
 gem 'foundation-rails'
 gem 'mini_magick', '~> 4.1.0'
 gem 'twilio-ruby', '~> 3.12'
-gem 'figaro', '~> 0.7'
+gem 'figaro', '~> 1.1.0'
 gem 'delayed_job_active_record'
 gem 'daemons', '~> 1.2.2'
 

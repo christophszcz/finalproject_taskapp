@@ -62,11 +62,19 @@ class AssignmentsController < ApplicationController
 		@assignment.worker = current_user
 		@assignment.save 
 		UserMailer.exchange_information(@assignment).deliver_now
-		flash[:notice] = "Your email has been sent!"
+		
+       # Instantiate a Twilio client
+      client = Twilio::REST::Client.new(TWILIO_CONFIG['sid'], TWILIO_CONFIG['token'])
+      
+      # Create and send an SMS message
+      client.account.sms.messages.create(
+        from: TWILIO_CONFIG['from'],
+        to: @assignment.worker.phone,
+        body: "You have been selected to perform a Task on taskhackr.com. Please check your emails for more details!"
+      )
+		flash[:notice] = "An email as well as SMS reminder have been sent!"
 		redirect_to assignment_path(@assignment)
 	end
-
-	
 
 	private
 		def assignment_params

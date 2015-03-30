@@ -48,7 +48,6 @@ class Assignment < ActiveRecord::Base
 	def self.search(search)
   	where("title LIKE ?", "%#{search}%" ) 
 	end
-		
 
 	# def formatted_price
 	# 	price_in_dollars = price_in_cents.to_f / 100
