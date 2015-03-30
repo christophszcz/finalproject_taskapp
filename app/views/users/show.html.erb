@@ -3,6 +3,11 @@
 	<%= image_tag @user.avatar_url(:medium) %>
 </div>
 
-
-<%= render partial: 'cust_assign' %>
-
+<% if current_user == @user %>
+	<%= render partial: 'cust_assign' %>
+<% else %>
+The title
+	<div>
+		<%= render @reviews_about_me %>
+	</div>
+<% end %>
