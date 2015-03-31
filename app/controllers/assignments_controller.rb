@@ -79,7 +79,7 @@ class AssignmentsController < ApplicationController
 		client.account.sms.messages.create(
         from: TWILIO_CONFIG['from'],
         to: @assignment.customer.phone, 
-        body: "A taskhackr has chosen complete your task. Please check your email messages for more details!"
+        body: "A taskhackr has chosen to complete your task. Please check your email messages for more details!"
       )
 
 		flash[:notice] = "An email as well as SMS reminder have been sent!"

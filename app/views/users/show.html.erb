@@ -8,6 +8,6 @@
 <% else %>
 <h4>Reviews</h4>
 	<div>
-		<%= render @reviews_about_me %>
+		<%= render Review.worker(@user) %>
 	</div>
 <% end %>
