@@ -1,5 +1,4 @@
 <h1>Sign Up</h1>
-
 <%= form_for @user do |f| %>
 	<div class="row">
 		<%= f.label :first_name%><br/>
@@ -49,4 +48,7 @@
 	 </div>
 
 	 <br><div class="action"><%= f.submit %></div>
+	<div>
+		<%= link_to 'Back', :back %>
+	</div>
  <% end %>

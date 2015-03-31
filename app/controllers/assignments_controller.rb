@@ -32,9 +32,9 @@ class AssignmentsController < ApplicationController
 
 	def index
 	  if params[:search]
-	    @assignments = Assignment.active.search(params[:search]).order("created_at DESC")
+	    @assignments = Assignment.all.search(params[:search]).order("created_at DESC")
 	  else
-	    @assignments = Assignment.active.order('created_at DESC')
+	    @assignments = Assignment.all.order('created_at DESC')
 	  end
 	
 	end
