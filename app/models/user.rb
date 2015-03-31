@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
 	scope :newest_first, -> { order("created_at DESC") }
 	
 
+	validates :password, length: {in: 6..40} 
 	validates :password, confirmation: true
 	validates :password_confirmation, presence: true
   
   validates :email, uniqueness: true
+  validates :phone, length: {is: 10}
 
 	has_many :made_tasks, class_name: "Assignment", foreign_key: :customer_id
 	has_many :accepted_tasks, class_name: "Assignment", foreign_key: :worker_id
